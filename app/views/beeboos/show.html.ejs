@@ -1,0 +1,18 @@
+<div class="hero-unit">
+  <h2 class="msg"><%= beeboo.msg %></h2>
+  <%- linkTo('Edit this beeboo', editBeebooPath(params.id), {class: 'btn pull-right'}); %>
+  <%- linkTo('Back to list', beebooPath(''), {class: 'btn pull-right'}); %>
+</div>
+
+<h2>Beeboo Properties</h2>
+<% for(var i in beeboo) { -%>
+<% if(i !== 'saved') { -%>
+<div class="row list-item">
+  <div class="span4">
+    <h3><%= i %></h3>
+  </div>
+  <div class="span8">
+    <h3><i class="icon-list-alt"></i><span class="<%= i %>"><%= beeboo[i] %></span></h3>
+  </div>
+</div>
+<% } -%><% } -%>
