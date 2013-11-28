@@ -1,10 +1,12 @@
 {
-  "name": "beeboo",
-  "version": "0.0.1",
-  "author": "",
-  "dependencies": {},
-  "devDependencies": {},
-  "engines": {
-    "node": "0.8.x"
-  }
+    "name": "beeboo",
+    "version": "0.0.1",
+    "author": "",
+    "dependencies": {},
+    "devDependencies": {
+        "socket.io": "latest"
+    },
+    "engines": {
+        "node": "0.8.x"
+    }
 }

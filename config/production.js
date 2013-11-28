@@ -33,6 +33,7 @@ var config = {
     , port: 27017
     }
   }
+, realtime: true
 
 /* // Using Postgres as the default, with only a Postgres DB
 , model: {
