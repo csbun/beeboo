@@ -2,9 +2,10 @@ var Beeboo = function () {
 
   this.defineProperties({
     msg: {type: 'string', required: true},
-    time: {type: 'datetime'}
+    // time: {type: 'datetime'}
   });
 
+  this.validatesPresent('msg');
   /*
   this.property('login', 'string', {required: true});
   this.property('password', 'string', {required: true});

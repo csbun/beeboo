@@ -7,18 +7,25 @@ var Api = function () {
      */
     this.shiver = function (req, resp, params) {
         var beeboo = geddy.model.Beeboo.create(params),
-            responseText = {};
+            responseText = {},
+            self = this;
 
         if (!beeboo.isValid()) {
             responseText.success = false;
             responseText.msg = 'beeboo is not valid';
+            this.respond(responseText, {format: 'json'});
         }
         else {
-            responseText.success = false;
-            responseText.msg = 'beeboo is not valid';
-            // todo 保存这个 beeboo
+            // 保存这个 beeboo
+            beeboo.save(function (err) {
+                if (err) {
+                    throw err;
+                }
+                responseText.success = true;
+                responseText.msg = 'beeboo is saved';
+                self.respond(responseText, {format: 'json'});
+            });
         }
-        this.respond(responseText, {format: 'json'});
     };
 };
 
