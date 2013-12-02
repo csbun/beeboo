@@ -1,11 +1,18 @@
 <header>
-    beeboo!
+    <nav class="navigation-bar dark">
+        <div class="navigation-bar-content">
+            <a class="element brand" href="#">BeeBoo</a>
+        </div>
+    </nav>
 </header>
+
 <section ms-controller="ambulance">
-    <ul ms-visible="beeboos.size()" ms-each-bb="beeboos">
-        <li>
-            <p>{{bb.createdAt}}</p>
-            <p>{{bb.msg}}</p>
+    <ul ms-visible="beeboos.size()" ms-each-bb="beeboos" class="listview">
+        <li class="list bg-lightBlue fg-white">
+            <div class="list-content">
+                <p>{{bb.createdAt}}</p>
+                <p class="list-title">{{bb.msg}}</p>
+            </div>
         </li>
     </ul>
     <div ms-visible="!beeboos.size()">
@@ -17,7 +24,9 @@
 var ambulanceVM = avalon.define('ambulance', function (vm) {
     vm.beeboos = [];
 });
-
+// geddy.model.Beeboo.all({}, function (bbs) {
+//     vm.beeboos = vm.beeboos.concat(bbs);
+// })
 geddy.io.addListenersForModels(['Beeboo']);
 geddy.model.Beeboo.on('save', function (beeboo) {
     ambulanceVM.beeboos.unshift(beeboo);
