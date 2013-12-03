@@ -1,32 +1,46 @@
 <header>
-    <nav class="navigation-bar dark">
+<!--     <nav class="navigation-bar">
         <div class="navigation-bar-content">
             <a class="element brand" href="#">BeeBoo</a>
         </div>
-    </nav>
+    </nav> -->
+    <h1>BeeBoo</h1>
 </header>
 
 <section ms-controller="ambulance">
-    <ul ms-visible="beeboos.size()" ms-each-bb="beeboos" class="listview">
-        <li class="list bg-lightBlue fg-white">
-            <div class="list-content">
-                <p>{{bb.createdAt}}</p>
-                <p class="list-title">{{bb.msg}}</p>
-            </div>
-        </li>
-    </ul>
+    <table class="table" ms-visible="beeboos.size()">
+        <thead>
+            <tr>
+                <th class="text-left">Level</th>
+                <th class="text-left">Time</th>
+                <th class="text-left">Msg</th>
+            </tr>
+        </thead>
+        <tbody ms-each-bb="beeboos">
+            <tr ms-class="{{bb.level}}">
+                <td>{{bb.level|uppercase}}</td>
+                <td>{{bb.createdAt|date('mm:ss')}}</td>
+                <td>{{bb.msg}}</td>
+            </tr>
+        </tbody>
+    </table>
+
     <div ms-visible="!beeboos.size()">
-        no beeboo!
+        <p>no beeboo!</p>
     </div>
 </section>
 
 <script type="text/javascript">
+// 定义vm
 var ambulanceVM = avalon.define('ambulance', function (vm) {
     vm.beeboos = [];
 });
+// 加载数据
 // geddy.model.Beeboo.all({}, function (bbs) {
 //     vm.beeboos = vm.beeboos.concat(bbs);
-// })
+// });
+
+// socket
 geddy.io.addListenersForModels(['Beeboo']);
 geddy.model.Beeboo.on('save', function (beeboo) {
     ambulanceVM.beeboos.unshift(beeboo);
@@ -38,4 +52,5 @@ geddy.model.Beeboo.on('save', function (beeboo) {
 //     console.log('remove');
 //     console.log(id);
 // });
+
 </script>

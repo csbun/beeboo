@@ -1,45 +1,34 @@
 var Beeboo = function () {
+    'use strict';
 
-  this.defineProperties({
-    msg: {type: 'string', required: true},
-    // time: {type: 'datetime'}
-  });
+    var levels = [
+        'info',
+        'warning',
+        'success',
+        'error'
+    ];
 
-  this.validatesPresent('msg');
-  /*
-  this.property('login', 'string', {required: true});
-  this.property('password', 'string', {required: true});
-  this.property('lastName', 'string');
-  this.property('firstName', 'string');
+    // 定义属性
+    this.defineProperties({
+        level: {
+            type: 'string'
+        },
+        msg: {
+            type: 'string',
+            required: true
+        }
+    });
 
-  this.validatesPresent('login');
-  this.validatesFormat('login', /[a-z]+/, {message: 'Subdivisions!'});
-  this.validatesLength('login', {min: 3});
-  // Use with the name of the other parameter to compare with
-  this.validatesConfirmed('password', 'confirmPassword');
-  // Use with any function that returns a Boolean
-  this.validatesWithFunction('password', function (s) {
-      return s.length > 0;
-  });
-
-  // Can define methods for instances like this
-  this.someMethod = function () {
-    // Do some stuff
-  };
-  */
-
+    // 参数校验
+    this.validatesPresent('msg');
+    this.validatesWithFunction('level', function (l) {
+        if (levels.indexOf(l) >= 0) {
+            return l;
+        }
+        else {
+            return levels[0];
+        }
+    });
 };
-
-/*
-// Can also define them on the prototype
-Beeboo.prototype.someOtherMethod = function () {
-  // Do some other stuff
-};
-// Can also define static methods and properties
-Beeboo.someStaticMethod = function () {
-  // Do some other stuff
-};
-Beeboo.someStaticProperty = 'YYZ';
-*/
 
 Beeboo = geddy.model.register('Beeboo', Beeboo);
