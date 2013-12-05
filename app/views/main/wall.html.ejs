@@ -19,7 +19,7 @@
         <tbody ms-each-bb="beeboos">
             <tr ms-class="{{bb.level}}">
                 <td>{{bb.level|uppercase}}</td>
-                <td>{{bb.createdAt|date('mm:ss')}}</td>
+                <td>{{bb.createdAt|date('hh:mm:ss')}}</td>
                 <td>{{bb.msg}}</td>
             </tr>
         </tbody>
@@ -37,7 +37,7 @@ var ambulanceVM = avalon.define('ambulance', function (vm) {
 });
 // 加载数据
 // geddy.model.Beeboo.all({}, function (bbs) {
-//     vm.beeboos = vm.beeboos.concat(bbs);
+//     vm.beeboos.push.apply(vm.beeboos, bbs);
 // });
 
 // socket
