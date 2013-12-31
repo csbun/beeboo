@@ -19,7 +19,7 @@
 var config = {
     detailedErrors: false,
     hostname: null,
-    port: ((process || '').env || '').VCAP_APP_PORT || 15942,
+    port: ((process || '').env || '').VCAP_APP_PORT || 4000,
     model: {
         defaultAdapter: 'filesystem' // 'mongo'
     },

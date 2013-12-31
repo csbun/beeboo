@@ -24,7 +24,9 @@ var Api = function () {
                 responseText.success = true;
                 responseText.msg = 'beeboo is saved';
                 self.respond(responseText, {format: 'json'});
-                // geddy.beeboo.socket.emit('api:shiver', beeboo);
+                if (geddy.beeboo && geddy.beeboo.socket) {
+                    geddy.beeboo.socket.emit('api:shiver', beeboo);
+                }
             });
         }
     };
