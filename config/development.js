@@ -20,7 +20,7 @@ var config = {
     detailedErrors: true,
     debug: true,
     hostname: null,
-    port: 4000,
+    port: ((process || '').env || '').VCAP_APP_PORT || 15942,
     model: {
         defaultAdapter: 'filesystem'
     },

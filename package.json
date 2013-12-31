@@ -2,11 +2,16 @@
     "name": "beeboo",
     "version": "0.0.1",
     "author": "",
-    "dependencies": {},
-    "devDependencies": {
+    "dependencies": {
+        "geddy": "latest",
         "socket.io": "latest"
+    },
+    "devDependencies": {
     },
     "engines": {
         "node": "0.8.x"
+    },
+    "scripts": {
+        "start": "node node_modules/geddy/bin/cli.js"
     }
 }

@@ -1,3 +1,5 @@
+// geddy.beeboo = {};
+
 // geddy.io.sockets.on('connection', function (socket) {
 //     'use strict';
 
@@ -5,4 +7,5 @@
 //     socket.on('message', function(message) {
 //         geddy.log.notice(message);
 //     });
+//     geddy.beeboo.socket = socket;
 // });

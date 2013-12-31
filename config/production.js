@@ -17,23 +17,28 @@
 */
 
 var config = {
-  detailedErrors: false
-, hostname: null
-, port: 4000
-, model: {
-    defaultAdapter: 'mongo'
-  }
-, db: {
-    mongo: {
-      username: null
-    , dbname: 'production'
-    , prefix: null
-    , password: null
-    , host: 'localhost'
-    , port: 27017
-    }
-  }
-, realtime: true
+    detailedErrors: false,
+    hostname: null,
+    port: ((process || '').env || '').VCAP_APP_PORT || 15942,
+    model: {
+        defaultAdapter: 'filesystem' // 'mongo'
+    },
+    sessions: {
+        store: 'memory',
+        key: 'sid',
+        expiry: 14 * 24 * 60 * 60
+    },
+    // db: {
+    //     mongo: {
+    //         username: null,
+    //         dbname: 'production',
+    //         prefix: null,
+    //         password: null,
+    //         host: 'localhost',
+    //         port: 27017
+    //     }
+    // },
+    realtime: true
 
 /* // Using Postgres as the default, with only a Postgres DB
 , model: {

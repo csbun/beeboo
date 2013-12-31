@@ -30,27 +30,8 @@
     </div>
 </section>
 
-<script type="text/javascript">
-// 定义vm
-var ambulanceVM = avalon.define('ambulance', function (vm) {
-    vm.beeboos = [];
-});
-// 加载数据
-// geddy.model.Beeboo.all({}, function (bbs) {
-//     vm.beeboos.push.apply(vm.beeboos, bbs);
-// });
-
-// socket
-geddy.io.addListenersForModels(['Beeboo']);
-geddy.model.Beeboo.on('save', function (beeboo) {
-    ambulanceVM.beeboos.unshift(beeboo);
-});
-// geddy.model.Beeboo.on('update', function (item) {
-//     console.log(item);
-// });
-// geddy.model.Beeboo.on('remove', function (id) {
-//     console.log('remove');
-//     console.log(id);
-// });
-
-</script>
+<%- scriptLink('js/app.js', {type:'text/javascript'}) %>
+<!--
+<%- scriptLink('socket.io/socket.io.js', {type:'text/javascript'}) %>
+<%- scriptLink('js/app2.js', {type:'text/javascript'}) %>
+-->
