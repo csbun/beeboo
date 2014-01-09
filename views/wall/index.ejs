@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="styles/metro-bootstrap.css">
+<link rel="stylesheet" href="styles/style.css">
+
+<header>
+    <h1>BeeBoo</h1>
+</header>
+
+<section ms-controller="ambulance">
+    <table class="table" ms-visible="beeboos.size()">
+        <thead>
+            <tr>
+                <th class="text-left">Level</th>
+                <th class="text-left">Time</th>
+                <th class="text-left">Msg</th>
+            </tr>
+        </thead>
+        <tbody ms-each-bb="beeboos">
+            <tr ms-class="{{bb.level}}">
+                <td>{{bb.level|uppercase}}</td>
+                <td>{{bb.createdAt|date('HH:mm:ss')}}</td>
+                <td>{{bb.msg}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div ms-visible="!beeboos.size()">
+        <p>no beeboo!</p>
+    </div>
+</section>

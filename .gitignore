@@ -1,10 +1,46 @@
-*.swp
-*.swo
-dist
+########################
+# sails
+########################
+.sails
+.waterline
+.rigging
+.tmp
+
+
+########################
+# node.js / npm
+########################
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
 node_modules
-*.DS_Store
-log/
+
 npm-debug.log
-config/secrets.json
-public/js/core/models.js
-db/
+
+
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea
+
+
+########################
+# local config
+########################
+config/local.js
+/sftp-config.json
